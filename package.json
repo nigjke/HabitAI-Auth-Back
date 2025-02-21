@@ -2,19 +2,33 @@
   "name": "habitai-auth-back",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/nigjke/HabitAI-Auth-Back#readme",
-  "bugs": {
-    "url": "https://github.com/nigjke/HabitAI-Auth-Back/issues"
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nigjke/HabitAI-Auth-Back.git"
   },
-  "license": "ISC",
+  "keywords": [],
   "author": "",
+  "license": "ISC",
   "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "dev": "node server.ts"
+  "bugs": {
+    "url": "https://github.com/nigjke/HabitAI-Auth-Back/issues"
+  },
+  "homepage": "https://github.com/nigjke/HabitAI-Auth-Back#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
   }
 }
