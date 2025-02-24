@@ -1,16 +1,23 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import dotenv from "dotenv";
+import { twitRouter } from "./controllers/controllers";
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello");
-});
+app.use('/twist', twitRouter);
+
+app.use('*', (req,res) => {
+  res
+  .status(404)
+  .json({
+    message : "Not Found"
+  })
+})
+  
 
 app.listen(PORT, () => {
   console.log(`server live on port : ${PORT}`);
