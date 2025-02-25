@@ -2,8 +2,10 @@ import { Router } from "express";
 
 const router = Router();
 
-router.post("/login", login);
-router.post("/logout", logout);
-router.post("/refresh");
+router.post("/login", (req,res) => {
+    res.json({
+      message : "Hello"
+    })
+    });
 
 export default router;
