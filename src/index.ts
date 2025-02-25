@@ -1,14 +1,23 @@
 import express from "express";
+import cors from "cors";
+import { twitRouter } from "./controllers/controllers";
 import dotenv from "dotenv";
-import authRoutes from "./routes/auth";
 
 dotenv.config();
 const app = express();
-const PORT = 5000;
+app.use(cors());
+const PORT = process.env.PORT || 3000;
 
-async function main() {
-  app.use(express.json());
-  app.use("/auth", authRoutes);
-  app.listen(PORT, () => console.log(`Server start on Port : ${PORT}`));
-}
-main();
+app.use(express.json());
+
+app.use("/twits", twitRouter);
+
+app.use("*", (req, res) => {
+  res.status(404).json({
+    message: "Not Found",
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`server live on port : ${PORT}`);
+});
