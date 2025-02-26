@@ -14,12 +14,13 @@ export const registerUser = async (email: string, password: string) => {
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  await prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       email,
       passwordHash: hashedPassword,
     },
   });
+  console.log("User created:", user);
 
   return { message: "Пользователь зарегистрирован" };
 };
