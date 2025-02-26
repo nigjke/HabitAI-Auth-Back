@@ -2,11 +2,13 @@ import express from "express";
 import dotenv from "dotenv";
 import router from "./routes/auth.routes";
 import userRoutes from "./routes/user.routes";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
 
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
 app.use("/auth", router);
 app.use("/user", userRoutes);
