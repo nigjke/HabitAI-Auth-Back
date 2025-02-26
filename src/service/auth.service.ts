@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const prisma = new PrismaClient();
-const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
+const JWT_SECRET = process.env.JWT_SECRET || "secret_as_example";
 
 export const registerUser = async (email: string, password: string) => {
   const existingUser = await prisma.user.findUnique({ where: { email } });
