@@ -16,6 +16,5 @@ app.use("/user", userRoutes);
 console.log("DATABASE_URL:", process.env.DATABASE_URL);
 console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
-
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5200;
 app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
